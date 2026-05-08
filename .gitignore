@@ -1,0 +1,8 @@
+images/
+output/
+prompts/
+__pycache__/
+*.pyc
+.env
+*.onnx
+u2net/
