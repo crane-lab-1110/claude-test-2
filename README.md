@@ -21,15 +21,41 @@
 
 ---
 
-## インストール
+## ローカルセットアップ
 
-Python 3.10 以上が必要です。
+### 必要なもの
+- Python 3.9 以上（[ダウンロード](https://www.python.org/downloads/)）
+- ChatGPT Plus アカウント（DALL-E 3 が使えるプラン）
 
+### セットアップ手順
+
+**Mac / Linux:**
 ```bash
-pip install -r requirements.txt
+git clone <このリポジトリのURL>
+cd <リポジトリ名>
+bash setup.sh
 ```
 
+**Windows:**
+```bat
+git clone <このリポジトリのURL>
+cd <リポジトリ名>
+setup.bat
+```
+
+セットアップスクリプトが以下を自動実行します:
+1. Python 仮想環境 (`.venv`) の作成
+2. 依存ライブラリのインストール（Pillow, rembg）
+3. `images/` フォルダの作成
+
 > **注意:** `rembg` は初回実行時に背景除去モデル（約170MB）を自動ダウンロードします。
+
+### 手動インストールの場合
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
 
 ---
 

@@ -6,3 +6,5 @@ __pycache__/
 .env
 *.onnx
 u2net/
+.venv/
+venv/

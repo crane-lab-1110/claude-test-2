@@ -11,6 +11,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Optional, Tuple
 
 try:
     from PIL import Image
@@ -37,7 +38,7 @@ def remove_background(img: Image.Image) -> Image.Image:
     return Image.open(io.BytesIO(result_bytes)).convert("RGBA")
 
 
-def fit_on_canvas(img: Image.Image, canvas_size: tuple[int, int]) -> Image.Image:
+def fit_on_canvas(img: Image.Image, canvas_size: Tuple[int, int]) -> Image.Image:
     """アスペクト比を保ちながら canvas_size に収め、中央に配置する。"""
     canvas_w, canvas_h = canvas_size
     img.thumbnail((canvas_w, canvas_h), Image.LANCZOS)
@@ -54,7 +55,7 @@ def save_png(img: Image.Image, path: str) -> int:
     return os.path.getsize(path)
 
 
-def process_image(src_path: str, sticker_out: str, is_first: bool, tab_icon_out: str | None) -> bool:
+def process_image(src_path: str, sticker_out: str, is_first: bool, tab_icon_out: Optional[str]) -> bool:
     """
     1枚の画像を処理してLINE規格のスタンプとして保存する。
     is_first=True のとき tab_icon も生成する。
